@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stage 4 of 5 · Persuasion Mechanics</title>
+  <title>Stage 5 of 5 · Final Educational Presentation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -84,6 +84,28 @@
       border-radius: 4px;
       font-size: 14px;
       color: #4a3f36;
+    }
+
+    .stage-nav {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .stage-pill {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      color: #5f5749;
+      background: #f7f3ec;
+    }
+
+    .stage-pill.current {
+      color: #fff;
+      background: var(--accent);
+      border-color: var(--accent);
     }
 
     section {
@@ -273,6 +295,22 @@
       border-right: 1px solid var(--line);
     }
 
+    .teaching-checklist {
+      margin-top: 16px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .teaching-checklist li {
+      list-style: none;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 12px;
+      background: #fcfaf6;
+      font-size: 14px;
+      color: #403931;
+    }
+
     footer {
       padding: 30px 0 60px;
       color: var(--muted);
@@ -299,16 +337,23 @@
 <body>
   <header>
     <div class="container">
-      <p class="kicker">DSC 106 · Project 2 · Stage 4 of 5</p>
+      <p class="kicker">DSC 106 · Project 2 · Stage 5 of 5</p>
       <h1>Two Charts, One Dataset, <em>Two Stories</em></h1>
       <p class="deck">
-        This is Stage 4 of 5. The page now exposes persuasion mechanics directly: each path
-        includes explicit framing moves, risk levels, and side-by-side comparison signals.
+        This is Stage 5 of 5: the final instructional presentation. It combines narrative contrast,
+        persuasion mechanics, and explicit teaching scaffolds in one polished walkthrough.
       </p>
       <p class="stage-note">
-        Educational focus for Stage 4: make invisible choices visible. Readers should see not
-        just the conclusion, but how specific design decisions push interpretation.
+        Educational focus for Stage 5: students should be able to audit each design move, identify
+        its rhetorical effect, and defend whether it is fair persuasion or misleading framing.
       </p>
+      <div class="stage-nav" aria-label="Development stages">
+        <span class="stage-pill">Stage 1 · Structure</span>
+        <span class="stage-pill">Stage 2 · Hierarchy</span>
+        <span class="stage-pill">Stage 3 · Contrast</span>
+        <span class="stage-pill">Stage 4 · Mechanics</span>
+        <span class="stage-pill current">Stage 5 · Final</span>
+      </div>
     </div>
   </header>
 
@@ -325,6 +370,11 @@
           and one challenges it. Later stages will gradually add visual polish, emotional framing,
           and ethical analysis.
         </p>
+        <ul class="teaching-checklist">
+          <li><strong>Step 1:</strong> Identify what metric and comparison group each side chooses.</li>
+          <li><strong>Step 2:</strong> Note visual and textual cues that shape emotional interpretation.</li>
+          <li><strong>Step 3:</strong> Judge whether each cue clarifies, persuades, or distorts.</li>
+        </ul>
       </div>
     </section>
 
@@ -414,12 +464,17 @@
           Which choices are analytical, and which are persuasive? At what point does persuasive
           design become deceptive design?
         </p>
+        <ul class="teaching-checklist">
+          <li><strong>Class prompt:</strong> Which side feels more trustworthy, and why?</li>
+          <li><strong>Evidence check:</strong> Did your judgment come from data, layout, wording, or all three?</li>
+          <li><strong>Ethics check:</strong> What disclosure would make each chart more honest?</li>
+        </ul>
       </div>
     </section>
   </main>
 
   <footer class="container">
-    Stage 4 of 5 focus: expose persuasion mechanics and trade-offs.
+    Stage 5 of 5 focus: final instructional experience with full framing audit.
   </footer>
 </body>
 </html>
