@@ -3,478 +3,1102 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stage 5 of 5 · Final Educational Presentation</title>
+  <title>Persuasive / Deceptive Visualization · DSC 106 Project 2</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #f4f1eb;
-      --text: #1c1a18;
-      --muted: #686051;
-      --line: #d9d1c4;
-      --line-strong: #c7bcac;
-      --accent: #8f251c;
-      --accent-soft: #efe4db;
-      --for-accent: #9c2f28;
-      --for-soft: #f3e1dd;
-      --against-accent: #1f5570;
-      --against-soft: #dfeaf1;
-      --panel: #ffffff;
-      --shadow: 0 10px 24px rgba(28, 24, 19, 0.06);
-      --good: #257a4a;
-      --warn: #aa6a18;
-      --risk: #a0352d;
+      --paper:        #f4f1ec;
+      --paper-deep:   #ebe6dd;
+      --ink:          #14131a;
+      --ink-soft:     #2c2a35;
+      --rule:         #cbc3b6;
+      --muted:        #6c6658;
+
+      --china-red:    #8c1c13;
+      --china-deep:   #5c120d;
+      --west-blue:    #0e4d64;
+      --west-deep:    #16324f;
+      --gold:         #c5862c;
+      --green:        #2e8b57;
+
+      --for-bg:       #1a1d22;
+      --for-bg-soft:  #232730;
+      --for-ink:      #f0ece2;
+      --for-muted:    #a09a8c;
+
+      --against-bg:   #f4f1ec;
+      --against-ink:  #14131a;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: "Inter", Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
-    .container {
-      width: min(980px, 92vw);
+    .display {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+    }
+
+    .serif { font-family: 'Fraunces', Georgia, serif; }
+    .mono  { font-family: 'IBM Plex Mono', monospace; }
+
+    /* ─── Header ───────────────────────────────────────────────────────── */
+    header.masthead {
+      max-width: 1180px;
       margin: 0 auto;
-    }
-
-    header {
-      padding: 40px 0 28px;
-      border-bottom: 1px solid var(--line);
+      padding: 56px 32px 32px;
+      border-bottom: 1px solid var(--rule);
     }
 
     .kicker {
+      font-family: 'IBM Plex Mono', monospace;
       font-size: 11px;
-      font-weight: 600;
-      color: var(--muted);
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 12px;
+      color: var(--muted);
+      margin-bottom: 18px;
     }
 
-    h1 {
-      font-family: "Fraunces", Georgia, serif;
-      font-size: clamp(30px, 5vw, 52px);
-      line-height: 1.08;
+    .kicker .dot {
+      display: inline-block;
+      width: 6px; height: 6px;
+      background: var(--china-red);
+      border-radius: 50%;
+      margin: 0 10px 1px;
+      vertical-align: middle;
+    }
+
+    h1.title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 800;
+      font-size: clamp(36px, 5.5vw, 64px);
+      line-height: 0.98;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      margin-bottom: 22px;
+    }
+
+    h1.title em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--china-red);
+    }
+
+    .deck {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.45;
+      color: var(--ink-soft);
+      max-width: 760px;
+      margin-bottom: 26px;
+    }
+
+    .intro-note {
+      max-width: 760px;
+      padding: 14px 16px;
+      background: #f0ebe2;
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      color: #4f493c;
+      font-size: 14px;
+      line-height: 1.55;
+      margin-bottom: 24px;
+    }
+
+    .byline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      align-items: baseline;
+      font-size: 13px;
+      color: var(--muted);
+      padding-top: 14px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .byline strong {
+      color: var(--ink);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    /* ─── Proposition ──────────────────────────────────────────────────── */
+    section.proposition {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 56px 32px 32px;
+    }
+
+    .prop-card {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    @media (max-width: 720px) {
+      .prop-card {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .prop-card .label {
+        display: inline-block;
+        padding-top: 10px;
+      }
+    }
+
+    .prop-card .label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-top: 12px;
+      border-top: 2px solid var(--ink);
+    }
+
+    .prop-card blockquote {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 600;
+      font-size: clamp(26px, 3.8vw, 42px);
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      padding-left: 0;
+    }
+
+    .prop-card blockquote .quote-mark {
+      font-size: 1.4em;
+      color: var(--china-red);
+      line-height: 0;
+      vertical-align: -0.1em;
+    }
+
+    .prop-card .footnote {
+      margin-top: 22px;
+      font-size: 14px;
+      color: var(--muted);
+      font-style: italic;
+      max-width: 560px;
+    }
+
+    /* ─── Side label ───────────────────────────────────────────────────── */
+    .side-banner {
+      width: 100%;
+      padding: 80px 32px 60px;
+    }
+
+    .side-banner.for-side {
+      background: var(--for-bg);
+      color: var(--for-ink);
+      border-top: 1px solid #2a2d35;
+    }
+
+    .side-banner.against-side {
+      background: var(--against-bg);
+      color: var(--against-ink);
+      border-top: 1px solid var(--rule);
+    }
+
+    .side-banner .inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .side-mark {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .for-side .side-mark { color: var(--for-muted); }
+    .against-side .side-mark { color: var(--muted); }
+
+    .side-mark .num {
+      width: 30px; height: 30px;
+      border: 1.5px solid currentColor;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    .side-banner h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 800;
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      max-width: 900px;
+      margin-bottom: 18px;
+    }
+
+    .for-side h2 em {
+      color: #d8585a;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .against-side h2 em {
+      color: var(--west-blue);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .side-banner .stance {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      font-size: 19px;
+      line-height: 1.5;
+      max-width: 640px;
+      opacity: 0.85;
+    }
+
+    /* ─── Visualization blocks ─────────────────────────────────────────── */
+    .viz-stack {
+      width: 100%;
+      padding: 60px 32px 90px;
+    }
+
+    .viz-stack.for-side {
+      background: var(--for-bg);
+      color: var(--for-ink);
+    }
+
+    .viz-stack.against-side {
+      background: var(--against-bg);
+      color: var(--against-ink);
+    }
+
+    .viz-stack .inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .viz-block {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 36px;
+      padding: 40px 0;
+      border-top: 1px solid;
+    }
+
+    .for-side .viz-block { border-top-color: #2e3138; }
+    .against-side .viz-block { border-top-color: var(--rule); }
+
+    .viz-block:first-child { border-top: none; padding-top: 0; }
+
+    @media (min-width: 960px) {
+      .viz-block {
+        grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+        gap: 48px;
+      }
+    }
+
+    .viz-frame {
+      background: #f2f0ef;
+      border-radius: 4px;
+      padding: 14px;
+      box-shadow: 0 22px 50px -28px rgba(0,0,0,0.35);
+      align-self: start;
+      position: sticky;
+      top: 24px;
+      transition: transform 180ms ease, box-shadow 220ms ease;
+    }
+
+    @media (max-width: 959px) {
+      .viz-frame { position: static; }
+    }
+
+    .for-side .viz-frame {
+      background: #f2f0ef;
+      box-shadow: 0 22px 50px -22px rgba(0,0,0,0.7);
+    }
+
+    .viz-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .viz-frame:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 26px 58px -30px rgba(0,0,0,0.45);
+    }
+
+    .viz-meta .viz-num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 10px;
+    }
+
+    .viz-meta h3 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 1.2;
       letter-spacing: -0.01em;
       margin-bottom: 14px;
     }
 
-    h1 em {
-      color: var(--accent);
-      font-style: italic;
-      font-weight: 500;
+    .viz-meta .summary {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 22px;
+      opacity: 0.88;
     }
 
-    .deck {
-      max-width: 68ch;
+    .for-side .viz-meta .summary { opacity: 0.78; }
+
+    /* Decision list */
+    .decisions {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .decisions > li {
+      padding: 16px 0;
+      border-top: 1px solid;
+    }
+
+    .for-side .decisions > li { border-top-color: #2e3138; }
+    .against-side .decisions > li { border-top-color: var(--rule); }
+
+    .decisions > li:first-child { border-top: none; padding-top: 6px; }
+
+    .decision-head {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 6px;
+    }
+
+    .score-pill {
+      flex-shrink: 0;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid;
+      white-space: nowrap;
+    }
+
+    /* score colors based on deception level */
+    .score-pill.s-deceptive  { color: #e87a73; border-color: #b13a32; background: rgba(177,58,50,0.12); }
+    .score-pill.s-leaning-d  { color: #d99878; border-color: #95572f; background: rgba(149,87,47,0.12); }
+    .score-pill.s-neutral    { color: var(--muted); border-color: var(--muted); background: transparent; }
+    .score-pill.s-leaning-e  { color: #58a47e; border-color: #2e8b57; background: rgba(46,139,87,0.12); }
+    .score-pill.s-earnest    { color: #4ec38a; border-color: #2e8b57; background: rgba(46,139,87,0.18); }
+
+    .for-side .score-pill.s-neutral { color: var(--for-muted); border-color: var(--for-muted); }
+
+    .decision-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 1.3;
+    }
+
+    .decisions p {
+      font-size: 14.5px;
+      line-height: 1.6;
+      opacity: 0.85;
+      max-width: 64ch;
+    }
+
+    .for-side .decisions p { opacity: 0.78; }
+
+    /* ─── Reflection ───────────────────────────────────────────────────── */
+    section.reflection {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 90px 32px 70px;
+    }
+
+    section.reflection .label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
       color: var(--muted);
-      font-size: 17px;
       margin-bottom: 18px;
     }
 
-    .stage-note {
-      max-width: 72ch;
-      background: var(--accent-soft);
-      border-left: 3px solid var(--accent);
-      padding: 12px 14px;
-      border-radius: 4px;
-      font-size: 14px;
-      color: #4a3f36;
+    section.reflection h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 800;
+      font-size: clamp(34px, 4.5vw, 48px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
     }
 
-    .stage-nav {
-      margin-top: 14px;
+    section.reflection h2 em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--china-red);
+    }
+
+    section.reflection p {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 19px;
+      line-height: 1.65;
+      margin-bottom: 22px;
+      color: var(--ink-soft);
+    }
+
+    section.reflection > p:first-of-type::first-letter {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 800;
+      font-size: 4.6em;
+      float: left;
+      line-height: 0.85;
+      padding: 6px 12px 0 0;
+      color: var(--china-red);
+    }
+
+    /* Lean callout */
+    .lean-card {
+      margin: 36px 0;
+      padding: 28px 32px;
+      background: var(--paper-deep);
+      border-left: 4px solid var(--china-red);
+      border-radius: 2px;
+    }
+    .lean-card .small-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .lean-card p {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.55;
+      margin: 0;
+      color: var(--ink);
+    }
+
+    /* ─── Footer ───────────────────────────────────────────────────────── */
+    footer {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 40px 32px 80px;
+      border-top: 1px solid var(--rule);
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    footer .col strong {
+      color: var(--ink);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 6px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-color: rgba(197, 134, 44, 0.45);
+      text-underline-offset: 2px;
+    }
+
+    a:hover {
+      text-decoration-color: rgba(197, 134, 44, 0.95);
+    }
+
+    /* Score legend */
+    .score-legend {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-    }
-
-    .stage-pill {
+      margin-top: 20px;
       font-size: 12px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--line-strong);
-      color: #5f5749;
-      background: #f7f3ec;
     }
 
-    .stage-pill.current {
-      color: #fff;
-      background: var(--accent);
-      border-color: var(--accent);
-    }
-
-    section {
-      padding: 36px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    section.path {
-      border-left: 4px solid transparent;
-      padding-left: 16px;
-    }
-
-    section.path-a {
-      border-left-color: var(--for-accent);
-      background: linear-gradient(90deg, rgba(243, 225, 221, 0.45), rgba(243, 225, 221, 0));
-    }
-
-    section.path-b {
-      border-left-color: var(--against-accent);
-      background: linear-gradient(90deg, rgba(223, 234, 241, 0.55), rgba(223, 234, 241, 0));
-    }
-
-    h2 {
-      font-family: "Fraunces", Georgia, serif;
-      font-size: 28px;
-      line-height: 1.15;
-      letter-spacing: -0.01em;
-      margin-bottom: 12px;
-    }
-
-    .lede {
-      max-width: 72ch;
-      color: var(--muted);
-      font-size: 16px;
-      margin-bottom: 22px;
-    }
-
-    .card {
-      background: var(--panel);
-      border: 1px solid var(--line-strong);
-      border-radius: 10px;
-      padding: 20px;
-      margin-top: 14px;
-      box-shadow: var(--shadow);
-    }
-
-    .path-a .card { border-color: #d6b2ac; }
-    .path-b .card { border-color: #aec7d7; }
-
-    .chart-placeholder {
-      border: 2px dashed #c8beaf;
-      background: linear-gradient(180deg, #fbfaf7, #f6f1e8);
-      height: 230px;
-      border-radius: 8px;
-      display: grid;
-      place-items: center;
-      color: #776d5f;
-      font-weight: 500;
-      font-size: 14px;
-      margin-bottom: 16px;
-    }
-
-    .path-a .chart-placeholder {
-      border-color: #caa39d;
-      background: linear-gradient(180deg, #fcf6f5, #f4e5e2);
-      color: #7a4740;
-    }
-
-    .path-b .chart-placeholder {
-      border-color: #98b8cb;
-      background: linear-gradient(180deg, #f7fbfd, #e8f0f5);
-      color: #31576a;
-    }
-
-    .notes {
-      display: grid;
-      gap: 8px;
-    }
-
-    .notes li {
-      margin-left: 20px;
-      color: #3a342e;
-      padding-left: 2px;
-    }
-
-    .notes li::marker {
-      color: var(--accent);
-    }
-
-    .path-b .notes li::marker {
-      color: var(--against-accent);
-    }
-
-    .section-label {
-      display: inline-block;
-      margin-bottom: 10px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .path-a .section-label {
-      color: var(--for-accent);
-    }
-
-    .path-b .section-label {
-      color: var(--against-accent);
-    }
-
-    .mechanics-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-top: 14px;
-    }
-
-    .mechanic {
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 12px;
-      background: #fffdfa;
-    }
-
-    .path-b .mechanic {
-      background: #f9fcff;
-    }
-
-    .mechanic h3 {
-      font-family: "Fraunces", Georgia, serif;
-      font-size: 17px;
-      margin-bottom: 8px;
-    }
-
-    .score {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      border-radius: 999px;
-      padding: 4px 8px;
-      margin-bottom: 8px;
-    }
-
-    .score-risk { background: #f7e3e1; color: var(--risk); }
-    .score-warn { background: #f7ecd9; color: var(--warn); }
-    .score-good { background: #e0f2e7; color: var(--good); }
-
-    .mechanic p {
-      font-size: 14px;
-      color: #3e3831;
-    }
-
-    .comparison {
-      margin-top: 16px;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .comparison-row {
-      display: grid;
-      grid-template-columns: 160px 1fr 1fr;
-      gap: 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .comparison-row:first-child {
-      border-top: none;
-      background: #f1ece3;
-      font-weight: 600;
-    }
-
-    .comparison-row > div {
-      padding: 10px 12px;
-      font-size: 14px;
-    }
-
-    .comparison-row > div:first-child {
-      border-right: 1px solid var(--line);
-      color: #5f5749;
-      font-weight: 600;
-    }
-
-    .comparison-row > div:nth-child(2) {
-      border-right: 1px solid var(--line);
-    }
-
-    .teaching-checklist {
-      margin-top: 16px;
-      display: grid;
+    .score-legend .scale-row {
+      display: flex;
+      align-items: center;
       gap: 10px;
+      flex-wrap: wrap;
     }
 
-    .teaching-checklist li {
-      list-style: none;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 10px 12px;
-      background: #fcfaf6;
-      font-size: 14px;
-      color: #403931;
+    .scale-bar {
+      display: inline-flex;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid var(--rule);
     }
-
-    footer {
-      padding: 30px 0 60px;
-      color: var(--muted);
-      font-size: 14px;
+    .scale-bar span {
+      padding: 3px 10px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
       font-weight: 500;
     }
+    .scale-bar .a { background: rgba(177,58,50,0.2); color: #8a221b; }
+    .scale-bar .b { background: rgba(149,87,47,0.18); color: #784524; }
+    .scale-bar .c { background: var(--paper-deep); color: var(--muted); }
+    .scale-bar .d { background: rgba(46,139,87,0.18); color: #1f6a3e; }
+    .scale-bar .e { background: rgba(46,139,87,0.3); color: #1f6a3e; }
 
-    @media (max-width: 640px) {
-      .card { padding: 16px; }
-      .chart-placeholder { height: 190px; }
-      .mechanics-grid { grid-template-columns: 1fr; }
-      .comparison-row { grid-template-columns: 1fr; }
-      .comparison-row > div {
-        border-right: none !important;
-        border-top: 1px solid var(--line);
+    /* Subtle texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.025;
+      background-image:
+        radial-gradient(circle at 25% 30%, #000 1px, transparent 1px),
+        radial-gradient(circle at 75% 70%, #000 1px, transparent 1px);
+      background-size: 80px 80px;
+      z-index: 0;
+    }
+
+    main, header, section, footer { position: relative; z-index: 1; }
+
+    /* Subtle entrance animation — applied only to first-fold elements so
+       later content (reflection, footer) remains immediately visible. */
+    @media (prefers-reduced-motion: no-preference) {
+      .masthead, .proposition .prop-card {
+        animation: rise 0.8s ease-out both;
       }
-      .comparison-row > div:first-child {
-        border-top: none;
-        background: #f8f4ec;
+      @keyframes rise {
+        from { opacity: 0; transform: translateY(18px); }
+        to   { opacity: 1; transform: translateY(0); }
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <p class="kicker">DSC 106 · Project 2 · Stage 5 of 5</p>
-      <h1>Two Charts, One Dataset, <em>Two Stories</em></h1>
-      <p class="deck">
-        This is Stage 5 of 5: the final instructional presentation. It combines narrative contrast,
-        persuasion mechanics, and explicit teaching scaffolds in one polished walkthrough.
-      </p>
-      <p class="stage-note">
-        Educational focus for Stage 5: students should be able to audit each design move, identify
-        its rhetorical effect, and defend whether it is fair persuasion or misleading framing.
-      </p>
-      <div class="stage-nav" aria-label="Development stages">
-        <span class="stage-pill">Stage 1 · Structure</span>
-        <span class="stage-pill">Stage 2 · Hierarchy</span>
-        <span class="stage-pill">Stage 3 · Contrast</span>
-        <span class="stage-pill">Stage 4 · Mechanics</span>
-        <span class="stage-pill current">Stage 5 · Final</span>
-      </div>
+
+  <!-- ─── MASTHEAD ──────────────────────────────────────────────────── -->
+  <header class="masthead">
+    <div class="kicker">DSC 106 · Project 2 <span class="dot"></span> Persuasive / Deceptive Visualization</div>
+
+    <h1 class="title">
+      Two Charts.<br />
+      One Dataset.<br />
+      <em>Two believable stories.</em>
+    </h1>
+
+    <p class="deck">
+      The same World Bank climate numbers can support very different conclusions.
+      This page walks through how each narrative is constructed, what feels fair,
+      and where persuasive framing can quietly become misleading.
+    </p>
+
+    <p class="intro-note">
+      Read this like a guided tour, not a verdict: each chart includes the design decisions
+      behind it, scored from <strong>&minus;2 (deceptive)</strong> to
+      <strong>+2 (earnest)</strong>, so you can see both the argument and the craft.
+    </p>
+
+    <div class="byline">
+      <span><strong>Group:</strong>
+        Keith Gong (x4gong@ucsd.edu) &middot;
+        Roxanne Wang (rox005@ucsd.edu) &middot;
+        Ryan Zhang (ryz002@ucsd.edu)
+      </span>
+      <span><strong>Course:</strong> DSC 106 &mdash; Spring 2026</span>
+      <span><strong>Dataset:</strong> World Bank Climate Change Indicators (1960–2018)</span>
     </div>
   </header>
 
-  <main class="container">
-    <section>
-      <p class="section-label">Setup</p>
-      <h2>Project Proposition</h2>
-      <p class="lede">
-        "China's economic rise has made meaningful climate progress impossible."
-      </p>
-      <div class="card">
-        <p>
-          We will build two contrasting visual arguments from one dataset: one supports this claim,
-          and one challenges it. Later stages will gradually add visual polish, emotional framing,
-          and ethical analysis.
+  <!-- ─── PROPOSITION ───────────────────────────────────────────────── -->
+  <section class="proposition">
+    <div class="prop-card">
+      <div class="label">The proposition</div>
+      <div>
+        <blockquote>
+          <span class="quote-mark">&ldquo;</span>China&rsquo;s economic rise has made meaningful climate progress impossible.<span class="quote-mark">&rdquo;</span>
+        </blockquote>
+        <p class="footnote">
+          We built two pages from one dataset: one designed to argue the proposition is true,
+          one designed to argue the opposite. Each visualization below is followed by the
+          design choices that made it persuasive &mdash; scored on a diverging scale from
+          <strong>&minus;2 (fully deceptive)</strong> to <strong>+2 (fully earnest)</strong>.
         </p>
-        <ul class="teaching-checklist">
-          <li><strong>Step 1:</strong> Identify what metric and comparison group each side chooses.</li>
-          <li><strong>Step 2:</strong> Note visual and textual cues that shape emotional interpretation.</li>
-          <li><strong>Step 3:</strong> Judge whether each cue clarifies, persuades, or distorts.</li>
-        </ul>
+        <div class="score-legend">
+          <div class="scale-row">
+            <span class="mono" style="color:var(--muted);">Scale:</span>
+            <span class="scale-bar">
+              <span class="a">&minus;2 deceptive</span>
+              <span class="b">&minus;1</span>
+              <span class="c">0 neutral</span>
+              <span class="d">+1</span>
+              <span class="e">+2 earnest</span>
+            </span>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="path path-a">
-      <p class="section-label">Path A</p>
-      <h2>Argument A (For the Proposition)</h2>
-      <p class="lede">
-        Stage 3 starts introducing urgency cues for this side through warmer tones and sharper framing.
+  <!-- ═══ FOR THE PROPOSITION ═══════════════════════════════════════════ -->
+  <section class="side-banner for-side">
+    <div class="inner">
+      <div class="side-mark"><span class="num">1</span> Page 1 &middot; For the proposition</div>
+      <h2>China&rsquo;s economic rise <em>has made</em> climate progress impossible.</h2>
+      <p class="stance">
+        This version is intentionally urgent. Reds dominate, values are absolute rather than
+        normalized, and the visual tone nudges the reader toward a single-cause explanation.
       </p>
-      <div class="card">
-        <div class="chart-placeholder">[ Placeholder for Visualization 1 · Emphasize absolute growth ]</div>
-        <ul class="notes">
-          <li>Use absolute emissions to make large-scale growth immediately visible.</li>
-          <li>Compare China against a grouped "West" baseline to amplify divergence.</li>
-          <li>Use assertive annotation tone (still evidence-based, not extreme).</li>
-        </ul>
-        <div class="mechanics-grid">
-          <div class="mechanic">
-            <span class="score score-risk">Risk: High</span>
-            <h3>Baseline Selection</h3>
-            <p>Picking a start year near inflection points can make one side look overwhelmingly responsible.</p>
-          </div>
-          <div class="mechanic">
-            <span class="score score-warn">Risk: Medium</span>
-            <h3>Category Grouping</h3>
-            <p>Grouping many countries into one benchmark simplifies reading but can hide internal variation.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="path path-b">
-      <p class="section-label">Path B</p>
-      <h2>Argument B (Against the Proposition)</h2>
-      <p class="lede">
-        Stage 3 gives this side a calmer "analytical" voice using cooler tones and balancing language.
+  <div class="viz-stack for-side">
+    <div class="inner">
+
+      <!-- ─── VIZ 1 ──────────────────────────────────────── -->
+      <article class="viz-block">
+        <div class="viz-frame">
+          <img src="images/viz1_china_vs_west.png" alt="Area chart: China's CO2 emissions rose 8.1B tonnes from 1990 while the combined West barely moved." />
+        </div>
+        <div class="viz-meta">
+          <div class="viz-num">Visualization 1</div>
+          <h3>China Erased Every Gain the West Ever Made</h3>
+          <p class="summary">
+            The change in annual CO<sub>2</sub> emissions from a 1990 baseline. China&rsquo;s
+            curve adds <strong>8.1 billion tonnes</strong>; the combined West (US, Germany,
+            UK, France, Canada, Japan) is essentially flat &mdash; barely &minus;0.2 billion
+            tonnes after thirty years.
+          </p>
+          <ul class="decisions">
+            <li>
+              <div class="decision-head">
+                <span class="score-pill s-deceptive">&minus;1.5</span>
+                <span class="decision-title">1990 baseline conveniently chosen</span>
+              </div>
+              <p>
+                Anchoring the y-axis at 1990 starts the clock just before China&rsquo;s
+                reform-era acceleration, maximizing visible divergence. Picking 1980, 2005,
+                or a rolling baseline would produce a softer curve. We considered showing
+                multiple baselines but chose the most dramatic.
+              </p>
+            </li>
+            <li>
+              <div class="decision-head">
+                <span class="score-pill s-deceptive">&minus;1.5</span>
+                <span class="decision-title">Six countries collapsed into &ldquo;the West&rdquo;</span>
+              </div>
+              <p>
+                Aggregating six economies into one line averages out high performers
+                (UK, Germany) with laggards (Canada). Shown individually, several Western
+                countries did meaningfully reduce. The aggregate flattens that variance and
+                makes the West look uniformly stagnant against a single rising China.
+              </p>
+            </li>
+            <li>
+              <div class="decision-head">
+                <span class="score-pill s-deceptive">&minus;2</span>
+                <span class="decision-title">Absolute emissions, no per-capita normalization</span>
+              </div>
+              <p>
+                We show raw tonnes &mdash; a population term hidden in plain sight. China has
+                roughly 4&times; the population of the US, so its absolute total is huge by
+                construction. Reframing on per-capita would entirely flip the visual hierarchy.
+                We picked the framing that makes scale read as guilt.
+              </p>
+            </li>
+            <li>
+              <div class="decision-head">
+                <span class="score-pill s-leaning-d">&minus;1</span>
+                <span class="decision-title">Saturated reds and dark page palette</span>
+              </div>
+              <p>
+                Crimson connotes alarm, blood, danger; the dark background tightens the
+                emotional register. The data could be plotted in any color, but red on
+                near-black primes the reader to feel a problem before reading the axis.
+              </p>
+            </li>
+            <li>
+              <div class="decision-head">
+                <span class="score-pill s-leaning-e">+1</span>
+                <span class="decision-title">Source line and complete units stay visible</span>
+              </div>
+              <p>
+                Despite the slanted framing, the y-axis is correctly scaled, includes units
+                (billion metric tonnes), and the source citation appears under the chart.
+                A skeptical reader who looks past the headline can still recover the raw data.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- ─── VIZ 2 ──────────────────────────────────────── -->
+      <article class="viz-block">
+        <div class="viz-frame">
+          <img src="images/viz2_renewables.png" alt="Line chart: China's renewable energy share fell from 34% in 1990 to 13% in 2018, while Germany rose from 2% to 16%." />
+        </div>
+        <div class="viz-meta">
+          <div class="viz-num">Visualization 2</div>
+          <h3>While Europe Invests in Clean Energy, China&rsquo;s Renewables Share Has Plummeted</h3>
+          <p class="summary">
+            China&rsquo;s renewable share of total final consumption fell from
+            <strong>34% (1990)</strong> to <strong>13% (2018)</strong>. Germany rose from
+            2% to 16% over the same window. Framed: China is moving the wrong way.
+          </p>
+          <ul class="decisions">
+            <li>
+              <div class="decision-head">
+                <span class="score-pill s-deceptive">&minus;2</span>
+                <span class="decision-title">Indicator definition silently exploited</span>
+              </div>
+              <p>
+                The World Bank&rsquo;s &ldquo;renewable energy consumption&rdquo; figure
+                includes traditional biomass &mdash; firewood, crop waste, and dung used
+                for cooking and heating. China&rsquo;s 1990 share of 34% is overwhelmingly
+                rural biomass combustion, not solar or wind. Modernization replaced biomass
+                with coal-fired electricity, so the line falls. We never explain that, and
+                the title invites the reader to read the drop as a reversal of climate policy.
+              </p>
+            </li>
+            <li>
+              <div class="decision-head">
+                <span class="score-pill s-deceptive">&minus;1.5</span>
+                <span class="decision-title">Slanted title and annotations</span>
+              </div>
+              <p>
+                &ldquo;Plummeted,&rdquo; &ldquo;headed backwards,&rdquo; and &ldquo;genuine
+                transition&rdquo; (next to Germany) are explicit value judgments laid on top
+                of a neutral line chart. The annotations contrast Germany&rsquo;s gain with
+                China&rsquo;s loss using language taken from policy debate, not from data.
+              </p>
+            </li>
+            <li>
+              <div class="decision-head">
+                <span class="score-pill s-leaning-d">&minus;1</span>
+                <span class="decision-title">Comparison set chosen to flatter Germany</span>
+              </div>
+              <p>
+                Germany and the UK are renewable-energy leaders in Europe. Plotting against
+                Poland, the US, or Japan would tell a different story (Poland is also coal-heavy
+                and only modestly improved). We picked the strongest contrast available.
+              </p>
+            </li>
+            <li>
+              <div class="decision-head">
+                <span class="score-pill s-neutral">0</span>
+                <span class="decision-title">Continuous line markers and axes</span>
+              </div>
+              <p>
+                The encoding itself &mdash; ordered, continuous lines, an axis from 0 to 42% &mdash;
+                is conventional and not deceptive. The deception lives in the framing, not
+                the geometry. We considered breaking the y-axis to amplify the gap but chose
+                not to, since a misuse of axes would be too easily detected.
+              </p>
+            </li>
+            <li>
+              <div class="decision-head">
+                <span class="score-pill s-leaning-e">+1</span>
+                <span class="decision-title">Multi-country comparison provides context</span>
+              </div>
+              <p>
+                Showing three countries (rather than China alone) gives the reader a frame
+                of reference. A China-only line would be more emotionally clean but feels
+                cherry-picked; the comparison group adds a layer of apparent objectivity
+                that a careful reader can also use to question the framing.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- ═══ AGAINST THE PROPOSITION ═══════════════════════════════════════ -->
+  <section class="side-banner against-side">
+    <div class="inner">
+      <div class="side-mark"><span class="num">2</span> Page 2 &middot; Against the proposition</div>
+      <h2>The West built this crisis. <em>China is just catching up.</em></h2>
+      <p class="stance">
+        This version is intentionally measured. A muted palette and structural chart choices
+        (per-capita and cumulative views) make the argument feel calmer and more objective.
       </p>
-      <div class="card">
-        <div class="chart-placeholder">[ Placeholder for Visualization 2 · Emphasize normalized context ]</div>
-        <ul class="notes">
-          <li>Use per-capita or cumulative emissions to provide contextual framing.</li>
-          <li>Apply measured annotation style to signal neutrality and deliberation.</li>
-          <li>Explicitly show how metric choice alters conclusions.</li>
-        </ul>
-        <div class="mechanics-grid">
-          <div class="mechanic">
-            <span class="score score-good">Risk: Lower</span>
-            <h3>Normalization Choice</h3>
-            <p>Per-capita and cumulative views can improve fairness, but they still prioritize one moral lens.</p>
-          </div>
-          <div class="mechanic">
-            <span class="score score-warn">Risk: Medium</span>
-            <h3>Neutrality Signaling</h3>
-            <p>Calm colors and cautious wording feel objective, even when the chart still carries argument.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <section>
-      <p class="section-label">Discussion</p>
-      <h2>Reflection Prompt</h2>
-      <div class="card">
-        <div class="comparison">
-          <div class="comparison-row">
-            <div>Dimension</div>
-            <div>Path A (For)</div>
-            <div>Path B (Against)</div>
-          </div>
-          <div class="comparison-row">
-            <div>Primary Metric</div>
-            <div>Absolute annual emissions</div>
-            <div>Per-capita or cumulative emissions</div>
-          </div>
-          <div class="comparison-row">
-            <div>Tone</div>
-            <div>Urgent and directional</div>
-            <div>Measured and analytical</div>
-          </div>
-          <div class="comparison-row">
-            <div>Main Risk</div>
-            <div>Over-assigning blame through scale framing</div>
-            <div>Masking rhetoric behind neutrality cues</div>
-          </div>
-        </div>
-        <p>
-          Which choices are analytical, and which are persuasive? At what point does persuasive
-          design become deceptive design?
-        </p>
-        <ul class="teaching-checklist">
-          <li><strong>Class prompt:</strong> Which side feels more trustworthy, and why?</li>
-          <li><strong>Evidence check:</strong> Did your judgment come from data, layout, wording, or all three?</li>
-          <li><strong>Ethics check:</strong> What disclosure would make each chart more honest?</li>
-        </ul>
-      </div>
-    </section>
-  </main>
+  <div class="viz-stack against-side">
+    <div class="inner">
 
-  <footer class="container">
-    Stage 5 of 5 focus: final instructional experience with full framing audit.
+      <!-- ─── VIZ 3 ──────────────────────────────────────── -->
+      <article class="viz-block">
+        <div class="viz-frame">
+          <img src="images/viz3_per_capita.png" alt="Bar chart: per-capita CO2 emissions in 2018. US 15.2t, Canada 15.5t, Australia 15.5t, Germany 8.6t, China 7.4t, UK 5.4t, India 1.8t." />
+        </div>
+        <div class="viz-meta">
+          <div class="viz-num">Visualization 3</div>
+          <h3>An American Pollutes Twice as Much as a Chinese Person &mdash; Every Single Year</h3>
+          <p class="summary">
+            Per-capita CO<sub>2</sub> in 2018: the US sits at <strong>15.2t</strong>,
+            Canada and Australia near 15.5t, China at <strong>7.4t</strong>, India at 1.8t.
+            The framing relocates moral accounting from the nation to the individual.
+          </p>
+          <ul class="decisions">
+            <li>
+              <div class="decision-head">
+                <span class="score-pill s-deceptive">&minus;1.5</span>
+                <span class="decision-title">Per-capita framing erases scale entirely</span>
+              </div>
+              <p>
+                Dividing by population transforms a country with billions of citizens into
+                a comparable individual. This is mathematically valid but hides the fact
+                that a low per-capita figure multiplied by 1.4 billion people is still a
+                continent-sized emission total. The chart implicitly equates a Chinese
+                citizen with an American one, then implies parity should mean rights.
+              </p>
+            </li>
+            <li>
+              <div class="decision-head">
+                <span class="score-pill s-deceptive">&minus;1.5</span>
+                <span class="decision-title">Comparison set tilted toward the case</span>
+              </div>
+              <p>
+                We picked seven countries that maximize contrast: US, Canada, Australia
+                (high per-capita), India (very low), and three modest emitters. We omitted
+                Qatar, Bahrain, Trinidad &mdash; tiny petro-states with extreme per-capita
+                figures &mdash; because their inclusion would distract from the China-vs-US
+                comparison we want to anchor. This isn&rsquo;t a falsification, but it is
+                a curated frame.
+              </p>
+            </li>
+            <li>
+              <div class="decision-head">
+                <span class="score-pill s-leaning-d">&minus;1</span>
+                <span class="decision-title">Per-capita framing also elides export emissions</span>
+              </div>
+              <p>
+                A meaningful share of China&rsquo;s emissions are produced making goods consumed
+                in the West. Per-capita assigns those tonnes to Chinese citizens, even when
+                the carbon ultimately serves an American shopper. The chart never mentions
+                this, because acknowledging it would weaken the moral inversion we are setting up.
+              </p>
+            </li>
+            <li>
+              <div class="decision-head">
+                <span class="score-pill s-leaning-e">+1.5</span>
+                <span class="decision-title">Sorted, conventional bar geometry</span>
+              </div>
+              <p>
+                Horizontal bars sorted by value are the canonical encoding for ranked
+                quantities; the reader can compare lengths at a glance. No truncation, no
+                broken axes, all values labeled. The chart hides nothing in its geometry.
+              </p>
+            </li>
+            <li>
+              <div class="decision-head">
+                <span class="score-pill s-earnest">+2</span>
+                <span class="decision-title">Per-capita normalization is a real defensible metric</span>
+              </div>
+              <p>
+                Despite the slant, per-capita CO<sub>2</sub> is a normatively meaningful
+                indicator: the atmosphere is a shared global resource and its capacity to
+                absorb carbon is finite, so equal individual access is a legitimate moral
+                framing. The chart leans on a real argument, not a fabricated one.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- ─── VIZ 4 ──────────────────────────────────────── -->
+      <article class="viz-block">
+        <div class="viz-frame">
+          <img src="images/viz4_cumulative.png" alt="Bar chart: cumulative CO2 emissions 1960-2018. United States 279B tonnes, the West (US+EU+CA+JP) 440B tonnes, China 205B tonnes." />
+        </div>
+        <div class="viz-meta">
+          <div class="viz-num">Visualization 4</div>
+          <h3>The West Built the CO<sub>2</sub> Already in Our Atmosphere &mdash; China Is Just Catching Up</h3>
+          <p class="summary">
+            Cumulative emissions, 1960–2018: the US alone has emitted <strong>279B tonnes</strong>;
+            the combined West, <strong>440B tonnes</strong>; China, <strong>205B</strong>.
+            Atmospheric CO<sub>2</sub> is a stock, not a flow &mdash; the reframing reassigns
+            responsibility toward the earlier industrializers.
+          </p>
+          <ul class="decisions">
+            <li>
+              <div class="decision-head">
+                <span class="score-pill s-leaning-d">&minus;1</span>
+                <span class="decision-title">Start year of 1960 is selectively chosen</span>
+              </div>
+              <p>
+                Atmospheric CO<sub>2</sub> from coal predates 1960 by more than a century.
+                Starting in 1960 captures the bulk of post-war Western industrial output
+                (good for the argument) but chops off the long 19th-century lead the West
+                actually had &mdash; potentially understating, not overstating, the case.
+                It&rsquo;s also a year when Chinese output was minimal, ensuring the China
+                bar starts low.
+              </p>
+            </li>
+            <li>
+              <div class="decision-head">
+                <span class="score-pill s-deceptive">&minus;1.5</span>
+                <span class="decision-title">&ldquo;The West&rdquo; aggregate stacked against single China</span>
+              </div>
+              <p>
+                The middle bar bundles six countries to compare against one. We could have
+                shown each country individually (US, Germany, UK, France, Canada, Japan, China),
+                but a single &ldquo;West&rdquo; bar towers more dramatically. Symmetry inversion
+                of the same trick used on Page 1 to inflate China &mdash; here it inflates the West.
+              </p>
+            </li>
+            <li>
+              <div class="decision-head">
+                <span class="score-pill s-leaning-d">&minus;0.5</span>
+                <span class="decision-title">Hatching as a visual handrail</span>
+              </div>
+              <p>
+                The diagonal hatching on the &ldquo;West&rdquo; bar reads as historical /
+                archival. It frames the column as a &ldquo;debt&rdquo; that has been
+                accumulating &mdash; an extra rhetorical layer beyond the bar height itself.
+              </p>
+            </li>
+            <li>
+              <div class="decision-head">
+                <span class="score-pill s-earnest">+2</span>
+                <span class="decision-title">Cumulative framing is physically correct for warming</span>
+              </div>
+              <p>
+                Radiative forcing responds to atmospheric concentration, which is the integral
+                of past emissions, not the current-year flow. From a climate-physics standpoint
+                this is the most defensible accounting of who has actually altered the
+                atmosphere &mdash; even though it&rsquo;s rhetorically chosen here.
+              </p>
+            </li>
+            <li>
+              <div class="decision-head">
+                <span class="score-pill s-leaning-e">+1.5</span>
+                <span class="decision-title">All values labeled; axes start at zero</span>
+              </div>
+              <p>
+                Each bar carries its absolute value; the y-axis starts at zero and uses a
+                consistent unit (billion tonnes). The persuasive force comes from framing,
+                not from any visual sleight-of-hand on the encoding itself.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- ─── REFLECTION ────────────────────────────────────────────────── -->
+  <section class="reflection">
+    <div class="label">Final reflection</div>
+    <h2>Where persuasion ends and <em>deception</em> begins.</h2>
+
+    <p>
+      The hardest part of this assignment was discovering how often a defensible analytical
+      choice and a deceptive one are the same choice. Per-capita normalization is an honest
+      response to population differences and a way to dodge accountability for absolute scale;
+      a 1990 baseline anchors the modern climate era and conveniently starts after China&rsquo;s
+      pre-reform decades; aggregating six countries into &ldquo;the West&rdquo; suppresses
+      within-group variance whether you are using it to flatter Western reductions or to
+      dramatize Western historical guilt. The visual encodings on every chart we built are
+      conventional. The deception &mdash; where it exists &mdash; lives in framing decisions
+      a reader cannot reverse-engineer from the chart alone: which years to show, which
+      countries to compare, which denominator to divide by, what to call the title.
+    </p>
+
+    <p>
+      What surprised us is how loud the textual layer is. We expected color, axis tricks, and
+      chart type to do most of the persuasive work. They didn&rsquo;t. The single most powerful
+      deceptive move on Page 1 is the indicator-definition trick in Visualization 2 &mdash; the
+      fact that &ldquo;renewable energy share&rdquo; in the World Bank dataset includes
+      traditional biomass, so a country modernizing out of rural poverty looks like it is
+      reversing climate policy. No axis is broken, no scale is truncated; the deception is
+      entirely in what we did not say. Conversely, the most persuasive earnest move on Page 2
+      is also definitional: choosing cumulative tonnes because warming responds to the integral
+      of emissions, not to the current year. Same data, opposite stories, both built mostly
+      out of word choices and metric choices.
+    </p>
+
+    <div class="lean-card">
+      <div class="small-label">Which side we lean toward</div>
+      <p>
+        We lean toward Page 2. Per-capita and cumulative framings rest on physical and moral
+        claims we find defensible: the atmosphere&rsquo;s absorptive capacity is shared, and
+        the warming we observe today is a stock built mostly by industrialized economies.
+        That said, we resist calling Page 1 &ldquo;just deceptive&rdquo; &mdash; the global
+        carbon budget is indifferent to historical fault once it is exhausted, and current
+        Chinese annual output is a real collective-action problem. Both pages use real numbers.
+      </p>
+    </div>
+
+    <p>
+      So where would we draw the line? We came out of this thinking ethical visualization is
+      less about what a chart looks like and more about what a chart asks the reader to assume.
+      Encodings that lie on the geometry &mdash; truncated zero baselines, inconsistent axes,
+      area scaled to the wrong dimension &mdash; are clearly out of bounds because they make
+      the visual itself untrue. But framing choices &mdash; per-capita versus absolute,
+      cumulative versus annual, this baseline year versus that one &mdash; only become deceptive
+      when they are presented as the single true frame and the alternatives are hidden.
+      Acceptable persuasion, by our reading, is honest about its own framing: it stays
+      defensible after the alternatives are spelled out. The visualizations on this page
+      mostly aren&rsquo;t. Building them deliberately deceptively is exactly what made the
+      line we are trying to draw legible.
+    </p>
+  </section>
+
+  <!-- ─── FOOTER ───────────────────────────────────────────────────── -->
+  <footer>
+    <div class="col">
+      <strong>Group</strong>
+      Keith Gong (x4gong@ucsd.edu)<br />
+      Roxanne Wang (rox005@ucsd.edu)<br />
+      Ryan Zhang (ryz002@ucsd.edu)
+    </div>
+    <div class="col">
+      <strong>Source</strong>
+      World Bank Climate Change Indicators<br />
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:11px;">CO<sub>2</sub> (kt), CO<sub>2</sub> per capita, Renewable energy %</span>
+    </div>
+    <div class="col">
+      <strong>Course</strong>
+      DSC 106 &middot; Project 2 &middot; Spring 2026
+    </div>
   </footer>
+
 </body>
 </html>
