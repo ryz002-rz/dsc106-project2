@@ -3,24 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stage 1 of 5 · Basic Narrative Layout</title>
+  <title>Stage 2 of 5 · Visual Hierarchy and Tone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #f6f3ee;
-      --text: #1f1d1a;
-      --muted: #655f53;
-      --line: #d8d1c5;
-      --accent: #8c1c13;
+      --bg: #f4f1eb;
+      --text: #1c1a18;
+      --muted: #686051;
+      --line: #d9d1c4;
+      --line-strong: #c7bcac;
+      --accent: #8f251c;
+      --accent-soft: #efe4db;
       --panel: #ffffff;
+      --shadow: 0 10px 24px rgba(28, 24, 19, 0.06);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: "Inter", Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     .container {
@@ -34,28 +40,43 @@
     }
 
     .kicker {
-      font-size: 12px;
+      font-size: 11px;
+      font-weight: 600;
       color: var(--muted);
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 14px;
+      letter-spacing: 0.12em;
+      margin-bottom: 12px;
     }
 
     h1 {
+      font-family: "Fraunces", Georgia, serif;
       font-size: clamp(30px, 5vw, 52px);
-      line-height: 1.05;
-      margin-bottom: 16px;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      margin-bottom: 14px;
     }
 
     h1 em {
       color: var(--accent);
-      font-style: normal;
+      font-style: italic;
+      font-weight: 500;
     }
 
     .deck {
-      max-width: 70ch;
+      max-width: 68ch;
       color: var(--muted);
-      font-size: 18px;
+      font-size: 17px;
+      margin-bottom: 18px;
+    }
+
+    .stage-note {
+      max-width: 72ch;
+      background: var(--accent-soft);
+      border-left: 3px solid var(--accent);
+      padding: 12px 14px;
+      border-radius: 4px;
+      font-size: 14px;
+      color: #4a3f36;
     }
 
     section {
@@ -64,63 +85,99 @@
     }
 
     h2 {
+      font-family: "Fraunces", Georgia, serif;
       font-size: 28px;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
       margin-bottom: 12px;
     }
 
     .lede {
       max-width: 72ch;
       color: var(--muted);
+      font-size: 16px;
       margin-bottom: 22px;
     }
 
     .card {
       background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      padding: 18px;
+      border: 1px solid var(--line-strong);
+      border-radius: 10px;
+      padding: 20px;
       margin-top: 14px;
+      box-shadow: var(--shadow);
     }
 
     .chart-placeholder {
-      border: 2px dashed #bdb5a8;
-      background: #faf8f4;
-      height: 240px;
-      border-radius: 4px;
+      border: 2px dashed #c8beaf;
+      background: linear-gradient(180deg, #fbfaf7, #f6f1e8);
+      height: 230px;
+      border-radius: 8px;
       display: grid;
       place-items: center;
-      color: #7b7468;
+      color: #776d5f;
+      font-weight: 500;
       font-size: 14px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
+    }
+
+    .notes {
+      display: grid;
+      gap: 8px;
     }
 
     .notes li {
-      margin-left: 18px;
-      margin-bottom: 8px;
+      margin-left: 20px;
+      color: #3a342e;
+      padding-left: 2px;
+    }
+
+    .notes li::marker {
+      color: var(--accent);
+    }
+
+    .section-label {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
     footer {
       padding: 30px 0 60px;
       color: var(--muted);
       font-size: 14px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 640px) {
+      .card { padding: 16px; }
+      .chart-placeholder { height: 190px; }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <p class="kicker">DSC 106 · Project 2 · Stage 1 of 5</p>
+      <p class="kicker">DSC 106 · Project 2 · Stage 2 of 5</p>
       <h1>Two Charts, One Dataset, <em>Two Stories</em></h1>
       <p class="deck">
-        This is Stage 1 of 5: the foundation version of the project page. At this stage, the goal is to
-        establish narrative structure and information hierarchy before adding advanced styling
-        and rhetorical design in later stages (2 through 5).
+        This is Stage 2 of 5. The structure from Stage 1 is still intact, but now we introduce
+        a clearer visual voice: improved typography, stronger spacing rhythm, and light card styling.
+      </p>
+      <p class="stage-note">
+        Educational focus for Stage 2: visual hierarchy and reading comfort. We are not changing
+        the argument yet, only how easily the audience can follow it.
       </p>
     </div>
   </header>
 
   <main class="container">
     <section>
+      <p class="section-label">Setup</p>
       <h2>Project Proposition</h2>
       <p class="lede">
         "China's economic rise has made meaningful climate progress impossible."
@@ -135,9 +192,10 @@
     </section>
 
     <section>
+      <p class="section-label">Path A</p>
       <h2>Argument A (For the Proposition)</h2>
       <p class="lede">
-        Stage 1 keeps this simple: one chart area and plain explanatory bullets.
+        In Stage 2, we keep the same content but improve readability and pacing.
       </p>
       <div class="card">
         <div class="chart-placeholder">[ Placeholder for Visualization 1 ]</div>
@@ -150,9 +208,10 @@
     </section>
 
     <section>
+      <p class="section-label">Path B</p>
       <h2>Argument B (Against the Proposition)</h2>
       <p class="lede">
-        In Stage 1, mirror the same structure so students can compare framing choices directly.
+        The mirrored layout remains so students can compare framing choices with less visual noise.
       </p>
       <div class="card">
         <div class="chart-placeholder">[ Placeholder for Visualization 2 ]</div>
@@ -165,6 +224,7 @@
     </section>
 
     <section>
+      <p class="section-label">Discussion</p>
       <h2>Reflection Prompt</h2>
       <div class="card">
         <p>
@@ -176,7 +236,7 @@
   </main>
 
   <footer class="container">
-    Stage 1 of 5 focus: structure first, polish later.
+    Stage 2 of 5 focus: better hierarchy, typography, and pacing.
   </footer>
 </body>
 </html>
