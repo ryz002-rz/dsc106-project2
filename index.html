@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stage 1 of 5 · Basic Narrative Layout</title>
+  <style>
+    :root {
+      --bg: #f6f3ee;
+      --text: #1f1d1a;
+      --muted: #655f53;
+      --line: #d8d1c5;
+      --accent: #8c1c13;
+      --panel: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .container {
+      width: min(980px, 92vw);
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 40px 0 28px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .kicker {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(30px, 5vw, 52px);
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+
+    h1 em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .deck {
+      max-width: 70ch;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    section {
+      padding: 36px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .lede {
+      max-width: 72ch;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 18px;
+      margin-top: 14px;
+    }
+
+    .chart-placeholder {
+      border: 2px dashed #bdb5a8;
+      background: #faf8f4;
+      height: 240px;
+      border-radius: 4px;
+      display: grid;
+      place-items: center;
+      color: #7b7468;
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .notes li {
+      margin-left: 18px;
+      margin-bottom: 8px;
+    }
+
+    footer {
+      padding: 30px 0 60px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <p class="kicker">DSC 106 · Project 2 · Stage 1 of 5</p>
+      <h1>Two Charts, One Dataset, <em>Two Stories</em></h1>
+      <p class="deck">
+        This is Stage 1 of 5: the foundation version of the project page. At this stage, the goal is to
+        establish narrative structure and information hierarchy before adding advanced styling
+        and rhetorical design in later stages (2 through 5).
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>Project Proposition</h2>
+      <p class="lede">
+        "China's economic rise has made meaningful climate progress impossible."
+      </p>
+      <div class="card">
+        <p>
+          We will build two contrasting visual arguments from one dataset: one supports this claim,
+          and one challenges it. Later stages will gradually add visual polish, emotional framing,
+          and ethical analysis.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Argument A (For the Proposition)</h2>
+      <p class="lede">
+        Stage 1 keeps this simple: one chart area and plain explanatory bullets.
+      </p>
+      <div class="card">
+        <div class="chart-placeholder">[ Placeholder for Visualization 1 ]</div>
+        <ul class="notes">
+          <li>Use absolute emissions (basic framing choice).</li>
+          <li>Compare China with a grouped "West" baseline.</li>
+          <li>Add short interpretation text (no emotional language yet).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Argument B (Against the Proposition)</h2>
+      <p class="lede">
+        In Stage 1, mirror the same structure so students can compare framing choices directly.
+      </p>
+      <div class="card">
+        <div class="chart-placeholder">[ Placeholder for Visualization 2 ]</div>
+        <ul class="notes">
+          <li>Use per-capita or cumulative emissions (alternative framing).</li>
+          <li>Keep neutral colors and plain annotation style.</li>
+          <li>Explain how metric choice changes interpretation.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Reflection Prompt</h2>
+      <div class="card">
+        <p>
+          Which choices are analytical, and which are persuasive? At what point does persuasive
+          design become deceptive design?
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    Stage 1 of 5 focus: structure first, polish later.
+  </footer>
+</body>
+</html>
