@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stage 2 of 5 · Visual Hierarchy and Tone</title>
+  <title>Stage 3 of 5 · Narrative Contrast and Framing</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -16,6 +16,10 @@
       --line-strong: #c7bcac;
       --accent: #8f251c;
       --accent-soft: #efe4db;
+      --for-accent: #9c2f28;
+      --for-soft: #f3e1dd;
+      --against-accent: #1f5570;
+      --against-soft: #dfeaf1;
       --panel: #ffffff;
       --shadow: 0 10px 24px rgba(28, 24, 19, 0.06);
     }
@@ -84,6 +88,21 @@
       border-bottom: 1px solid var(--line);
     }
 
+    section.path {
+      border-left: 4px solid transparent;
+      padding-left: 16px;
+    }
+
+    section.path-a {
+      border-left-color: var(--for-accent);
+      background: linear-gradient(90deg, rgba(243, 225, 221, 0.45), rgba(243, 225, 221, 0));
+    }
+
+    section.path-b {
+      border-left-color: var(--against-accent);
+      background: linear-gradient(90deg, rgba(223, 234, 241, 0.55), rgba(223, 234, 241, 0));
+    }
+
     h2 {
       font-family: "Fraunces", Georgia, serif;
       font-size: 28px;
@@ -108,6 +127,9 @@
       box-shadow: var(--shadow);
     }
 
+    .path-a .card { border-color: #d6b2ac; }
+    .path-b .card { border-color: #aec7d7; }
+
     .chart-placeholder {
       border: 2px dashed #c8beaf;
       background: linear-gradient(180deg, #fbfaf7, #f6f1e8);
@@ -119,6 +141,18 @@
       font-weight: 500;
       font-size: 14px;
       margin-bottom: 16px;
+    }
+
+    .path-a .chart-placeholder {
+      border-color: #caa39d;
+      background: linear-gradient(180deg, #fcf6f5, #f4e5e2);
+      color: #7a4740;
+    }
+
+    .path-b .chart-placeholder {
+      border-color: #98b8cb;
+      background: linear-gradient(180deg, #f7fbfd, #e8f0f5);
+      color: #31576a;
     }
 
     .notes {
@@ -136,6 +170,10 @@
       color: var(--accent);
     }
 
+    .path-b .notes li::marker {
+      color: var(--against-accent);
+    }
+
     .section-label {
       display: inline-block;
       margin-bottom: 10px;
@@ -144,6 +182,14 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--muted);
+    }
+
+    .path-a .section-label {
+      color: var(--for-accent);
+    }
+
+    .path-b .section-label {
+      color: var(--against-accent);
     }
 
     footer {
@@ -162,15 +208,15 @@
 <body>
   <header>
     <div class="container">
-      <p class="kicker">DSC 106 · Project 2 · Stage 2 of 5</p>
+      <p class="kicker">DSC 106 · Project 2 · Stage 3 of 5</p>
       <h1>Two Charts, One Dataset, <em>Two Stories</em></h1>
       <p class="deck">
-        This is Stage 2 of 5. The structure from Stage 1 is still intact, but now we introduce
-        a clearer visual voice: improved typography, stronger spacing rhythm, and light card styling.
+        This is Stage 3 of 5. We now introduce controlled contrast between two narrative paths,
+        so readers can feel how framing shifts interpretation before full persuasive polish.
       </p>
       <p class="stage-note">
-        Educational focus for Stage 2: visual hierarchy and reading comfort. We are not changing
-        the argument yet, only how easily the audience can follow it.
+        Educational focus for Stage 3: rhetorical direction. "Path A" and "Path B" now have
+        distinct visual cues while preserving the same structural backbone.
       </p>
     </div>
   </header>
@@ -191,34 +237,34 @@
       </div>
     </section>
 
-    <section>
+    <section class="path path-a">
       <p class="section-label">Path A</p>
       <h2>Argument A (For the Proposition)</h2>
       <p class="lede">
-        In Stage 2, we keep the same content but improve readability and pacing.
+        Stage 3 starts introducing urgency cues for this side through warmer tones and sharper framing.
       </p>
       <div class="card">
-        <div class="chart-placeholder">[ Placeholder for Visualization 1 ]</div>
+        <div class="chart-placeholder">[ Placeholder for Visualization 1 · Emphasize absolute growth ]</div>
         <ul class="notes">
-          <li>Use absolute emissions (basic framing choice).</li>
-          <li>Compare China with a grouped "West" baseline.</li>
-          <li>Add short interpretation text (no emotional language yet).</li>
+          <li>Use absolute emissions to make large-scale growth immediately visible.</li>
+          <li>Compare China against a grouped "West" baseline to amplify divergence.</li>
+          <li>Use assertive annotation tone (still evidence-based, not extreme).</li>
         </ul>
       </div>
     </section>
 
-    <section>
+    <section class="path path-b">
       <p class="section-label">Path B</p>
       <h2>Argument B (Against the Proposition)</h2>
       <p class="lede">
-        The mirrored layout remains so students can compare framing choices with less visual noise.
+        Stage 3 gives this side a calmer "analytical" voice using cooler tones and balancing language.
       </p>
       <div class="card">
-        <div class="chart-placeholder">[ Placeholder for Visualization 2 ]</div>
+        <div class="chart-placeholder">[ Placeholder for Visualization 2 · Emphasize normalized context ]</div>
         <ul class="notes">
-          <li>Use per-capita or cumulative emissions (alternative framing).</li>
-          <li>Keep neutral colors and plain annotation style.</li>
-          <li>Explain how metric choice changes interpretation.</li>
+          <li>Use per-capita or cumulative emissions to provide contextual framing.</li>
+          <li>Apply measured annotation style to signal neutrality and deliberation.</li>
+          <li>Explicitly show how metric choice alters conclusions.</li>
         </ul>
       </div>
     </section>
@@ -236,7 +282,7 @@
   </main>
 
   <footer class="container">
-    Stage 2 of 5 focus: better hierarchy, typography, and pacing.
+    Stage 3 of 5 focus: introduce narrative contrast through framing cues.
   </footer>
 </body>
 </html>
