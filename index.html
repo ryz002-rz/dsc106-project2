@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stage 3 of 5 · Narrative Contrast and Framing</title>
+  <title>Stage 4 of 5 · Persuasion Mechanics</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -22,6 +22,9 @@
       --against-soft: #dfeaf1;
       --panel: #ffffff;
       --shadow: 0 10px 24px rgba(28, 24, 19, 0.06);
+      --good: #257a4a;
+      --warn: #aa6a18;
+      --risk: #a0352d;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -192,6 +195,84 @@
       color: var(--against-accent);
     }
 
+    .mechanics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .mechanic {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: #fffdfa;
+    }
+
+    .path-b .mechanic {
+      background: #f9fcff;
+    }
+
+    .mechanic h3 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .score {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      border-radius: 999px;
+      padding: 4px 8px;
+      margin-bottom: 8px;
+    }
+
+    .score-risk { background: #f7e3e1; color: var(--risk); }
+    .score-warn { background: #f7ecd9; color: var(--warn); }
+    .score-good { background: #e0f2e7; color: var(--good); }
+
+    .mechanic p {
+      font-size: 14px;
+      color: #3e3831;
+    }
+
+    .comparison {
+      margin-top: 16px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 160px 1fr 1fr;
+      gap: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .comparison-row:first-child {
+      border-top: none;
+      background: #f1ece3;
+      font-weight: 600;
+    }
+
+    .comparison-row > div {
+      padding: 10px 12px;
+      font-size: 14px;
+    }
+
+    .comparison-row > div:first-child {
+      border-right: 1px solid var(--line);
+      color: #5f5749;
+      font-weight: 600;
+    }
+
+    .comparison-row > div:nth-child(2) {
+      border-right: 1px solid var(--line);
+    }
+
     footer {
       padding: 30px 0 60px;
       color: var(--muted);
@@ -202,21 +283,31 @@
     @media (max-width: 640px) {
       .card { padding: 16px; }
       .chart-placeholder { height: 190px; }
+      .mechanics-grid { grid-template-columns: 1fr; }
+      .comparison-row { grid-template-columns: 1fr; }
+      .comparison-row > div {
+        border-right: none !important;
+        border-top: 1px solid var(--line);
+      }
+      .comparison-row > div:first-child {
+        border-top: none;
+        background: #f8f4ec;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <p class="kicker">DSC 106 · Project 2 · Stage 3 of 5</p>
+      <p class="kicker">DSC 106 · Project 2 · Stage 4 of 5</p>
       <h1>Two Charts, One Dataset, <em>Two Stories</em></h1>
       <p class="deck">
-        This is Stage 3 of 5. We now introduce controlled contrast between two narrative paths,
-        so readers can feel how framing shifts interpretation before full persuasive polish.
+        This is Stage 4 of 5. The page now exposes persuasion mechanics directly: each path
+        includes explicit framing moves, risk levels, and side-by-side comparison signals.
       </p>
       <p class="stage-note">
-        Educational focus for Stage 3: rhetorical direction. "Path A" and "Path B" now have
-        distinct visual cues while preserving the same structural backbone.
+        Educational focus for Stage 4: make invisible choices visible. Readers should see not
+        just the conclusion, but how specific design decisions push interpretation.
       </p>
     </div>
   </header>
@@ -250,6 +341,18 @@
           <li>Compare China against a grouped "West" baseline to amplify divergence.</li>
           <li>Use assertive annotation tone (still evidence-based, not extreme).</li>
         </ul>
+        <div class="mechanics-grid">
+          <div class="mechanic">
+            <span class="score score-risk">Risk: High</span>
+            <h3>Baseline Selection</h3>
+            <p>Picking a start year near inflection points can make one side look overwhelmingly responsible.</p>
+          </div>
+          <div class="mechanic">
+            <span class="score score-warn">Risk: Medium</span>
+            <h3>Category Grouping</h3>
+            <p>Grouping many countries into one benchmark simplifies reading but can hide internal variation.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -266,6 +369,18 @@
           <li>Apply measured annotation style to signal neutrality and deliberation.</li>
           <li>Explicitly show how metric choice alters conclusions.</li>
         </ul>
+        <div class="mechanics-grid">
+          <div class="mechanic">
+            <span class="score score-good">Risk: Lower</span>
+            <h3>Normalization Choice</h3>
+            <p>Per-capita and cumulative views can improve fairness, but they still prioritize one moral lens.</p>
+          </div>
+          <div class="mechanic">
+            <span class="score score-warn">Risk: Medium</span>
+            <h3>Neutrality Signaling</h3>
+            <p>Calm colors and cautious wording feel objective, even when the chart still carries argument.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -273,6 +388,28 @@
       <p class="section-label">Discussion</p>
       <h2>Reflection Prompt</h2>
       <div class="card">
+        <div class="comparison">
+          <div class="comparison-row">
+            <div>Dimension</div>
+            <div>Path A (For)</div>
+            <div>Path B (Against)</div>
+          </div>
+          <div class="comparison-row">
+            <div>Primary Metric</div>
+            <div>Absolute annual emissions</div>
+            <div>Per-capita or cumulative emissions</div>
+          </div>
+          <div class="comparison-row">
+            <div>Tone</div>
+            <div>Urgent and directional</div>
+            <div>Measured and analytical</div>
+          </div>
+          <div class="comparison-row">
+            <div>Main Risk</div>
+            <div>Over-assigning blame through scale framing</div>
+            <div>Masking rhetoric behind neutrality cues</div>
+          </div>
+        </div>
         <p>
           Which choices are analytical, and which are persuasive? At what point does persuasive
           design become deceptive design?
@@ -282,7 +419,7 @@
   </main>
 
   <footer class="container">
-    Stage 3 of 5 focus: introduce narrative contrast through framing cues.
+    Stage 4 of 5 focus: expose persuasion mechanics and trade-offs.
   </footer>
 </body>
 </html>
